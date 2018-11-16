@@ -1,0 +1,25 @@
+.gradle
+/local.properties
+/.idea/workspace.xml
+/.idea/libraries
+.DS_Store
+/build
+/captures
+/.idea
+*.iml
+*.apk
+*.ap_
+*.dex
+*.class
+bin/
+gen/
+/*/build/
+*.log
+
+# IDEA artifacts and output dirs
+*.iml
+*.ipr
+*.iws
+.idea
+out
+test-output
