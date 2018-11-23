@@ -1,6 +1,6 @@
 package com.i5306.java.netty.chat.bootstrap;
 
-import com.i5306.java.netty.chat.handler.FirstServerHandler;
+import com.i5306.java.netty.chat.handler.ServerHandler;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelOption;
@@ -18,13 +18,13 @@ public class NettyServer {
         serverBootstrap
                 .group(bossGroup, workGroup)
                 .channel(NioServerSocketChannel.class)
+                .option(ChannelOption.SO_BACKLOG, 1024)
                 .childOption(ChannelOption.TCP_NODELAY, true)
                 .childOption(ChannelOption.SO_KEEPALIVE, true)
-                .childOption(ChannelOption.SO_BACKLOG, 1024)
                 .childHandler(new ChannelInitializer<NioSocketChannel>() {
                     @Override
                     protected void initChannel(NioSocketChannel ch) {
-                        ch.pipeline().addLast(new FirstServerHandler());
+                        ch.pipeline().addLast(new ServerHandler());
                     }
                 });
 
