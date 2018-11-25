@@ -1,3 +1,4 @@
 rootProject.name = 'netty'
 include 'chat'
+include 'example'
 
